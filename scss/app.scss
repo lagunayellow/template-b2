@@ -1,0 +1,862 @@
+@import "0-mixin/mixin-dir";
+@import "1-maps/maps-dir";
+
+/* Default Settings */
+	* {
+		margin: 0;
+		padding: 0;
+	};
+	body {
+		// background-color: black;
+		overflow-x: hidden;
+	}
+	section, div, article, canvas {
+		display: block;
+		position: relative;
+		font-family: 'Helvetica';
+	}
+	h1, h2, h3, h4, h5, h6, p, span {
+		font-family: 'Helvetica';
+	}
+	ul, li {
+		list-style: none;
+		list-style-type: none;
+	}
+	a:active, a:visited, a {
+		color: white;
+		text-decoration: none;
+	}
+
+	.button {
+		position: absolute;
+		right: 0;
+	}
+	.livechat {
+		@include media($livechat, top);
+		color: white;
+		background-color: $goldYellow;
+	}
+	.discover {
+		bottom: 0;
+		background-color: $cloudGrey;
+	}
+	.container, .mobile-container {
+		@include range(100%, 100%);
+		@include layout(row, center, center);
+	}
+	.container-mobile {
+		@include range(100%, 100%);
+		@include layout(column, center, center);
+	}
+	.grid {
+		@include range(100%, 100%);
+	}
+	body.preventScrolling {
+		overflow: hidden;
+	}
+	#deviceWidth {
+		position: fixed;
+		z-index: 9999;
+		left: 0;
+		bottom: 0;
+		color: black;
+	}
+/* Settings */
+	#settings {
+		display: none;
+		position: fixed;
+		z-index: 9999;
+		padding: 25px 50px;
+		background-color: $cloudGrey;
+		@include range(40rem, 20rem);
+		@include tlbr(50%, 50%, 0, 0);
+		transform: translate(-50%, -50%);
+		.container {
+			@include layout(row, center, null);
+			.grid {
+				@include layout(column, null, null);
+				.title {
+					width: 100%;
+					h1 {
+						text-align: center;
+						font-size: 2rem;
+						font-weight: 400;
+						margin-top: 0;
+					}
+				}
+				.options {
+					@include range(100%, 100%);
+					@include layout(row, center, center);
+					.category, .contents {
+						@include range(50%, 100%);
+						padding: 0 6%;
+						text-align: center;
+						@include layout(column, center, center);
+						.text {
+							@include layout(row, center, center);
+							.colorset {
+								display: inline-flex;
+								border-radius: 25%;
+								@include range(20px, 20px);
+								margin: 20px 5px;
+							}
+							.yellow {
+								background-color: $goldYellow;
+								border: 1px solid black;
+							}
+							.blue {
+								background-color: $navyBlue;
+							}
+							.mono {
+								background-color: black;
+							}
+							.red {
+								background-color: $roseRed;
+							}
+						}
+						li {
+							font-size: 1.4rem;
+							margin: 20px 0;
+							.firstPesudo li {
+								margin: 20px;
+							}
+						}
+					}
+				}
+			}
+			.line {
+				border: 0;
+				border-bottom: 1px solid black;
+			}
+		}
+	}
+/* /end Settings */
+/* Home */
+	#home {
+		.container {
+			@include range(100%, 100%);
+			@include layout(row, center, center);
+			.grid {
+				@at-root .home {
+					max-width: 2560px;
+					overflow: hidden;
+					@include media($grid, width, height);
+					@include layout(row, null, null);
+					// need to add flex-flow: null to extend height property 100%;
+					.category {
+						transition: all 800ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+						@include layout(column, null, null);
+						@at-root .video {
+							@include range(100%, 100%);
+							@include tlbr(0, 0, 0, 0);
+							position: absolute;
+							object-fit: cover;
+							video {
+								@include range(100%, 100%);
+								position: absolute;
+								object-fit: cover;
+							}
+						}
+						@at-root .main {
+							@include range(100%, null);
+							.navigation {
+								color: white;
+								width: 100%;
+								max-width: 2560px;
+								position: fixed;
+								z-index: 999;
+								@include media($navHeight, height);
+								background-color: $shineBlack;
+								@include layout(row, null, center);
+								.cell {
+									@at-root .logo {
+										padding-left: 40px;
+										img {
+											@include media($logoRange, width, height);
+										}
+									}
+									@at-root .menu, .options {
+										@include layout(row, null, center);
+									}
+									@at-root .menu {
+										@include media($menubar, padding-left);
+										.contents {
+											@include media($menubar, padding);
+											height: auto;
+											transition: all 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+											// @include layout(column, null, null);
+											@include media($grid, display);
+											flex-flow: column;
+											hr.underline {
+												border: 0;
+												height: 1px;
+												width: 0%;
+												margin: 0 auto;
+												background-color: #464646;
+												transition: .3s;
+											}
+											@at-root .contents:hover hr.underline {
+												background-color: #DDB321;
+												width: 100%;
+											}
+										}
+									}
+									@at-root .options {
+										.contents {
+											padding: 0 15px;
+											@include media($grid, display);
+											img {
+												@include media($menuIcons, width, height);
+											}
+											.lang {
+												padding: 5px;
+												background-color: darkgrey;
+											}
+										}
+									}
+									@at-root .mobile {
+										@include media($grid-mobile, display);
+										padding: 0 20px;
+										z-index: 44;
+									}
+								}
+								.shrink {
+									flex-grow: 1.1;
+								}
+							}
+							.article {
+								height: 100%;
+								@include layout(row, center, flex-end);
+							}
+							.mobile-menu {
+							  position: fixed;
+							  z-index: 9;
+							  color: white;
+							  width: 100%;
+								left: 0;
+							  height: 100%;
+							  background-color: #202020;
+								transition: all 400ms cubic-bezier(.73,.01,.17,1.03);
+								overflow-y: scroll;
+								.blackbar {
+									background-color: black;
+									width: 100%;
+									@include media($navHeight, height);
+									@include media($grid-mobile, display);
+								}
+								.panel {
+									height: 100%;
+									.m-container {
+										padding: 1rem;
+										@at-root .mobMenu a {
+											padding: 1rem 0;
+											@include range(100%, 100%);
+											display: inline-block;
+											font-size: .8rem;
+										}
+										@at-root .socials {
+											@include layout(row, null, null);
+											margin: 1rem;
+											a {
+												font-size: 1/4rem;
+												margin: 0 .6rem;
+											}
+										}
+										.m-grid a {
+											border-bottom: 1px solid #4b4a4a;
+										}
+										.m-grid > .m-panel, .inset-panel-2nd {
+											display: block;
+											padding-left: 1rem;
+											max-height: 0;
+											overflow: hidden;
+											transition: all 600ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+											a {
+												font-size: .6rem;
+											}
+										}
+										.m-grid > .expanded, .inset-m-grid > .expanded {
+											max-height: 1000px;
+										}
+										.changeColor {
+											color: $goldYellow;
+										}
+									}
+								}
+								.search {
+									@include layout(row, null, null);
+									position: fixed;
+									bottom: 0;
+									width: 100%;
+									height: 3rem;
+									.wrapper {
+										@include layout(row, null, null);
+										width: 80%;
+										background-color: #dedede !important;
+										span {
+											background-color: transparent;
+											padding: 1rem .5rem 1rem 1rem;
+											img {
+												background-color: transparent;
+												color: black;
+												@include range(20px, 20px);
+											}
+										}
+										input.searchBox {
+											width: 100%;
+											height: 100%;
+											border: 0;
+											background-color: transparent;
+										}
+									}
+									.language {
+										width: 20%;
+										background-color: white;
+										color: $goldYellow;
+										@include layout(column, center, center);
+									}
+								}
+							}
+							.mobile-menu.expandPanel {
+								transition: all 600ms cubic-bezier(.73,.01,.17,1.03);
+								left: 100%;
+							}
+						}
+					}
+					.table {
+						z-index: 8;
+						top: -29rem;
+						width: 100%;
+						max-width: 2560px;
+						height: auto;
+						overflow-y: hidden;
+						position: fixed;
+						background-color: #202020;
+						color: white;
+						transition: all 240ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+						.holder {
+							height: 29rem;
+							margin: 0 170px;
+							@include layout(row, null, null);
+							@include media($holder, padding-top);
+							padding-top: 110px;
+							.plates {
+								width: calc(100% / 3);
+								height: 100%;
+								// margin: 0 60px;
+								.contents {
+									transition: all 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+									li {
+										border-bottom: 1px solid #4b4a4a;
+										padding: 1.33rem 0;
+									}
+								}
+								.hide {
+									transition: all 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+									display: none;
+								}
+							}
+						}
+					}
+					.shown {
+						top: 0;
+					}
+				}
+			}
+		}
+	}
+/* /end Home */
+
+/* Stripe Slider */
+	#stripe {
+		.container {
+			.grid {
+				max-width: 2560px;
+				overflow: hidden;
+				@include media($grid, width);
+				@include layout(row, center, center);
+				.inline-grid {
+					left: -100%;
+					@include layout(row, null, center);
+					.cell {
+						@include range(100%, 35rem);
+						@include layout(column, null, null);
+						flex-shrink: 0;
+						.screen {
+							@include range(100%, 100%);
+							@include layout(column, null, null);
+							flex-shrink: 0;
+							.image {
+								@include range(100%, 100%);
+								@include layout(column, center, center);
+								img {
+									@include range(100%, 100%);
+									object-fit: cover;
+								}
+							}
+							.contents {
+								position: absolute;
+								@include range(80%, auto);
+								padding: 40px 0 0 40px;
+								h1, h3 {
+									color: $cloudGrey;
+									@at-root h1 {
+										margin: 10px 0;
+										font-family: "Open Sans";
+										font-size: 2.66rem;
+									}
+									@at-root h3 {
+										margin: 20px 0 0 0;
+									}
+								}
+								p {
+									@include button;
+								}
+							}
+						}
+					}
+				}
+				.arrow-grid {
+					@include layout(row, null, center);
+					.prev, .shrink, .next {
+						position: absolute;
+					}
+					.prev {
+						left: 0;
+						margin: 0 40px;
+						cursor: pointer;
+						img {
+							@include range(80px, 80px);
+						}
+						z-index: 2;
+					}
+					.shrink {
+						flex-grow: 1.1;
+					}
+					.next {
+						cursor: pointer;
+						img {
+							@include range(80px, 80px);
+						}
+						margin: 0 40px;
+						right: 0;
+						text-align: right;
+						z-index: 2;
+					}
+
+				}
+			}
+		}
+	}
+/* /end Stripe Slider */
+/* Configurator */
+	#configurator {
+		.container {
+			.grid {
+				max-width: 2560px;
+				@include media($grid, width);
+				overflow: hidden;
+				.cell, .inline-cell {
+					width: 100%;
+					@include media($config, height);
+				}
+				.left {
+					position: absolute;
+					background: url('../img/home/config-01.jpg') no-repeat left center;
+					background-size: cover;
+					width: 100%;
+					@include media($config, position);
+					cursor: pointer;
+					.inline-cell {
+						display: inline-flex;
+						@include media($config, flex-flow, justify-content, text-align);
+						width: 100%;
+						.contents {
+							word-wrap: break-word;
+							min-width: 50%;
+							@include media($config, padding);
+							h1 {
+								position: relative;
+								word-wrap: break-word;
+								flex-wrap: wrap;
+								cursor: auto;
+							}
+							p {
+								@include button;
+							}
+						}
+					}
+				}
+				.inline-grid {
+					width: 100%;
+					overflow: hidden;
+					transition: width 1.2s ease-in-out;
+					@include media($skewNegative, transform, margin-left);
+					.right {
+						background: url('../img/home/config-02.jpg') no-repeat center center;
+						background-size: cover;
+						pointer-events: auto;
+						@include media($skewPlus, transform, margin-left);
+						@include layout(column, flex-end, center);
+						.contents {
+							color: $cloudGrey;
+							padding: 0 40px 40px 0;
+							p {
+								@include button;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+/* /end Configurator */
+/* News Laptop */
+	#news {
+		@include media($grid-md, display);
+		margin: 100px 0;
+		.container {
+			.grid {
+				@include media($grid-md, width);
+				.cell.title {
+					@include layout(column, center, center);
+					h1 {
+						font-size: 3.22rem;
+					}
+				}
+				.cell.article {
+					@include layout-row-full;
+					.article-left {
+						width: 60%;
+						.clip.top {
+							a {
+								@extend %clip-image;
+								padding-bottom: 50%;
+								background-image: url('../img/news/20190415.jpg');
+								margin: .2rem;
+							}
+						}
+						.clip.bottom {
+							@include layout(row, center, center);
+							.pin.left {
+								@include range(50%, 100%);
+								padding: .2rem;
+								a {
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/news/Coverdefw.jpg');
+								}
+							}
+							.pin.right {
+								@include range(50%, 100%);
+								padding: .2rem;
+								a {
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/news/Covercefw.jpg');
+								}
+							}
+						}
+					}
+					.article-right {
+						width: 40%;
+						.clip.right {
+							@include range(100%, 100%);
+							padding: .2rem;
+							a {
+								@extend %clip-image;
+								padding-bottom: 150%;
+								background-image: url('../img/news/Coverbefw.jpg');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+/* /end News Laptop */
+/* News Mobile*/
+
+	#mobile-news, #mobile-events {
+		padding: 4rem 0;
+		.container-mobile {
+			overflow: hidden;
+			.holder {
+				.wrapper {
+					position: absolute;
+					left: -100%;
+					width: 300%;
+					font-size: 0;
+					.contents {
+						width: 25%;
+						padding-bottom: 25%;
+						float: left;
+						// background-image: url('../img/news/mobiles/image-mobile-0.jpg');
+						background-position: center center;
+						background-repeat: no-repeat;
+						background-size: cover;
+						opacity: .5;
+						transform: scale(.95, .95);
+						transition: transform 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+					}
+					.remote-size {
+						width: 33.333333%;
+						padding-bottom: 33.333333%;
+					}
+					.remote-scale {
+						opacity: 1;
+						transform: scale(1, 1);
+					}
+				}
+				.switch {
+					transition: left 800ms cubic-bezier(.93,.01,.1,.98);
+				}
+			}
+		}
+	}
+
+	// #news_Slider {
+	// 	.container {
+	//
+	// 		.grid-mobile {
+	// 			display: flex;
+	// 			.window {
+	// 				// @include range(550px, 450px);
+	// 				// border: 1px solid black;
+	// 				overflow: hidden;
+	// 				vertical-align: center;
+	// 				.film {
+	// 					width: 1440px;
+	// 					// display: flex;
+	// 					// @include layout(row, center, center);
+	// 					position: absolute;
+	// 					float: left;
+	// 					font-size: 0;
+	// 					left: -175%; // -175%
+	// 					.images {
+	// 						width: 25%;
+	// 						padding-bottom: 25%;
+	// 						// @include range(33.333333%, 100%);
+	// 						background-repeat: no-repeat;
+	// 						background-size: cover;
+	// 						display: inline-block;
+	// 						background-position: center center;
+	// 						opacity: .5;
+	// 						transition: 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	// 						-webkit-transform: scale(0.95, 0.95);
+	// 					}
+	// 					.shown {
+	// 						opacity: 1;
+	// 						-webkit-transform: scale(1, 1);
+	// 					}
+	// 				}
+	// 				.mover {
+	// 					transition: 1000ms cubic-bezier(.93,.01,.1,.98);
+	// 					left: 15%;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	#news_Mobile {
+		height: 450px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.container_Mobile {
+			position: absolute;
+			display: flex;
+			flex-flow: row;
+			justify-content: center;
+			width: 300%;
+			border: 1px solid black;
+			height: 450px;
+			box-sizing: border-box;
+			align-items: center;
+			.cell {
+				float: left;
+
+				width: 33.3333%;
+				padding-bottom: 33.3333%;
+				color: purple;
+
+				display: inline-block;
+			}
+			.cell:nth-child(2n-1) {
+				-webkit-transform: scale(0.95, 0.95);
+			}
+			.images {
+				background-image: url('../img/news/imageMobile-1.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center center;
+			}
+		}
+	}
+/* /end News Mobile*/
+/* Events */
+	#events {
+		@include media($grid-md, display);
+		margin: 100px 0;
+		.container {
+			.grid {
+				@include media($grid-md, width, display);
+				.cell.title {
+					@include layout(column, center, center);
+					h1 {
+						font-size: 3.22rem;
+					}
+				}
+				.cell.mainArticle {
+					@include layout-row-full;
+					background-color: #efefea;
+
+					margin: .2rem .2rem;
+					flex: 1 1 auto;
+					.mainArticle-left {
+						width: 60%;
+						margin-right: .5rem;
+						.mainClip {
+							a {
+								@extend %clip-image;
+								padding-bottom: 50%;
+								background-image: url('../img/events/Dubai-1.jpg');
+							}
+						}
+					}
+					.mainArticle-right {
+						margin-right: .2rem;
+						width: 40%;
+						height: 50%;
+						@include layout(column, center, center);
+						text-align: center;
+						p, span {
+							margin-bottom: 15px;
+							font-size: 1.22rem;
+						}
+						.alertTitle {
+							font-weight: 900;
+						}
+						span {
+							color: $goldYellow;
+						}
+					}
+				}
+				.cell.article {
+					@include layout-row-full;
+					.article-left {
+						width: 60%;
+						.clip.top {
+							@include layout(row, center, center);
+							.pin.left {
+								@include range(50%, 100%);
+								a {
+									margin: .2rem;
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/events/Dubai-2.jpg');
+								}
+							}
+							.pin.right {
+								@include range(50%, 100%);
+								a {
+									margin: .2rem;
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/events/1 Sepang.jpg');
+								}
+							}
+						}
+						.clip.bottom {
+							@include layout(row, center, center);
+							.pin.left {
+								@include range(50%, 100%);
+								padding: .2rem;
+								a {
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/events/Barber-4.jpg');
+								}
+							}
+							.pin.right {
+								@include range(50%, 100%);
+								padding: .2rem;
+								a {
+									@extend %clip-image;
+									padding-bottom: 100%;
+									background-image: url('../img/events/Silverstone-5.jpg');
+								}
+							}
+						}
+					}
+					.article-right {
+						width: 40%;
+						.clip.right {
+							@include range(100%, 100%);
+							padding: .2rem;
+							a {
+								@extend %clip-image;
+								padding-bottom: 150%;
+								background-image: url('../img/news/Coverbefw.jpg');
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+/* /end Events */
+
+/* Footer */
+
+	#footer {
+		color: white;
+		.container {
+			.grid {
+				max-width: 2560px;
+				overflow: hidden;
+				@include media($grid, width);
+				@include layout(column, center, center);
+				@include spaces(null, 3rem 0);
+				background-image: url('../img/footer/footer.jpg');
+				background-position: center center;
+				background-size: cover;
+				.footer-header {
+					@include layout(row, center, center);
+					li {
+						margin: 10px;
+					}
+				}
+				.footer-body {
+					@include media($footer-body-grid, width, display);
+					width: 60%;
+					@include layout(row, null, null);
+					.footer-body-quarter {
+						margin: 0 20px;
+						flex: 1;
+						li {
+							@include layout(column, null, null);
+							h4 {
+								margin: 10px 0;
+								border-bottom: 1px solid white;
+								font-size: 1.13rem;
+							}
+							a {
+								margin: 9px 0;
+							}
+						}
+					}
+				}
+				.footer-icons {
+					margin: 1rem 0;
+					a {
+						margin: 0 10px;
+
+					}
+				}
+			}
+		}
+	}
+
+/* /end Footer */

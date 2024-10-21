@@ -1,0 +1,95 @@
+/* Media Queries Generator */
+	@mixin media($prefix, $properties...) {
+		$myIndex: 1;
+		@each $min, $max in $breakpoints {
+			@media all and (min-width: $min * 1px) and (max-width: $max * 1px) {
+				@each $names in $properties {
+					$myList: map-get($prefix, $names);
+					#{$names}: nth($myList, $myIndex);
+				}
+				$myIndex: $myIndex + 1;
+			}
+		}
+		@if ($myIndex > 4) {
+			@each $min in $default {
+				@media all and (min-width: $min * 1px) {
+					@each $names in $properties {
+						$myList: map-get($prefix, $names);
+						#{$names}: nth($myList, $myIndex);
+					}
+				}
+			}
+		}
+	}
+/* /end Media Queries Generator */
+	@mixin range($w, $h) {
+		width: $w;
+		height: $h;
+	}
+	@mixin layout($f1, $f2, $f3) {
+		display: flex;
+		flex-flow: $f1;
+		justify-content: $f2;
+		align-items: $f3;
+	}
+	@mixin tlbr($a, $b, $c, $d) {
+		top: $a;
+		left: $b;
+		bottom: $c;
+		right:$d;
+	}
+	@mixin spaces($a, $b: null) {
+		margin: $a;
+		padding: $b;
+	}
+	@mixin button {
+		display: inline-flex;
+		width: auto;
+		background-color: $goldYellow;
+		padding: 10px 20px;
+	}
+	@mixin layout-inline($f1, $f2, $f3) {
+		display: inline-flex;
+		flex-flow: $f1;
+		justify-content: $f2;
+		align-items: $f3;
+	}
+/* Home */
+	@mixin layout-row {
+		display: flex;
+		flex-flow: row;
+	}
+	@mixin contents-padding($parameter) {
+		@if $parameter == navigation {
+			padding: 0 20px;
+		} @else if $parameter == mobile {
+		 	padding: 0 15px;
+		}
+	}
+/* /end Home */
+
+/* Configurator */
+
+/* News */
+	@mixin layout-row {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+	}
+	@mixin layout-row-half-height {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 50%;
+	}
+	@mixin layout-row-full {
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}

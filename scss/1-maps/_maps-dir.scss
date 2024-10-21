@@ -1,0 +1,124 @@
+/* Color Palette */
+$roseRed:  #FF2400;
+$goldYellow: #dfb400; // Default
+$navyBlue: #000080;
+$shineBlack: rgba(0, 0, 0, .7);
+$silverGrey: #efefea;
+$cloudGrey: #e5e5e5;
+$w: white;
+/* /end Color Palette */
+
+/* Media Queries Breakpoints */
+    $breakpoints: ( 0:600, 601:900, 901:1200, 1201:1800 );
+    $default: ( 1801 );
+    $grid: (
+      width: (750px, 992px, 1366px, 2160px, 2560px),
+      height: (100vh, 100vh, 100vh, 100vh, 100vh),
+      display: (none, none, flex, flex, flex)
+    );
+    $color: (
+      color: (white, grey, darkgrey, navy, teal)
+    );
+    $grid-md: (
+      width: (480px, 768px, 1024px, 1440px, 1600px),
+      display: (none, none, block, block, block)
+    );
+    $grid-mobile: (
+      display: (flex, flex, none, none, none)
+    );
+    $livechat: (
+      top: (56px, 56px, 80px, 110px, 110px)
+    );
+/* /end Media Queries Breakpoints */
+
+/* Home */
+  $navHeight: (
+    height: (56px, 56px, 80px, 110px, 110px)
+  );
+  $logoRange: (
+    width: (40px, 40px, 60px, 80px, auto),
+    height: (40px, 40px, 60px, 80px, auto)
+  );
+  $menuIcons: (
+   width: (7px, 10px, 15px, 20px, 30px),
+   height: (7px, 10px, 15px, 20px, 30px)
+  );
+  $table: (
+    height: (20rem, 20rem, 20rem, 30rem, 40rem)
+  );
+  $holder: (
+    padding-top: (56px, 56px, 80px, 110px, 110px)
+  );
+  $menubar: (
+    padding-left: (20px, 25px, 30px, 35px, 40px),
+    padding: (0 5px, 0 5px, 0 5px, 0 10px, 0 10px)
+  );
+/* /end Home */
+
+/* Configurator */
+  $config: (
+    height: (25.5rem, 25.5rem, 25.5rem, 51rem, 51rem),
+    position: (relative, relative, relative, absolute, absolute),
+    //.wrap-col
+    flex-flow: (row, row, row, none, none),
+    justify-content:(center, center, center, none, none),
+    text-align: (center, center, center, left, left),
+    //.contents
+    padding: (0, 0, 0, 40px 0 0 40px, 40px 0 0 40px)
+  );
+  $skewNegative: (
+    transform: (0, 0, 0, skewX(-20deg), skewX(-20deg)),
+    margin-left: (0, 0, 0, 50%, 50%)
+  );
+  $skewPlus: (
+    transform: (0, 0, 0, skewX(20deg), skewX(20deg)),
+    margin-left: (0, 0, 0, -200px, -200px)
+  );
+/* /end Configurator */
+
+
+/* News */
+
+/* Footer */
+  $footer-body-grid: (
+    width: (none, none, 90%, 80%, 60%),
+    display: (none, none, flex, flex, flex)
+  );
+  $footer-body-grid-m: (
+    display: (block, block, none, none, none)
+  );
+
+/* Sub Selectors (Starts from News) */
+  %col-center {
+    @include layout(column, center, center);
+  }
+  %row-center {
+    @include layout(row, center, center);
+  }
+  %article-highlight {
+    position: relative;
+    content: '';
+    background-color: black;
+    @include range(6rem, .4rem);
+  }
+  %article-image {
+    position: relative;
+    @include range(100%, 100%);
+    background-size: cover;
+  }
+  %_image-pseudo {
+    @include range(100%, 50%);
+    position: absolute;
+    bottom: 0;
+    background-color: $shineBlack;
+  }
+  %clip-image {
+    display: block;
+    background-position: center center;
+    background-size: cover;
+  }
+  %flex {
+    flex: 1 1 auto;
+    margin: 5px;
+    padding: 5px;
+  }

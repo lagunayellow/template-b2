@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="initial-scale=1 width=device-width">
+    <title>람보르기니 이미테이션</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300|Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <!-- Ionicons -->
+    <link href="https://unpkg.com/ionicons@4.4.2/dist/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+      /*===============================
+      ||        Media Queries        ||
+      ===============================*/
+      @media only screen and (min-width: 959px) and (max-width: 1279px){
+        /*-------------------------------
+        |      Resolution Checker       |
+        --------------------------------*/
+        #resolution {background: #685100;}
+
+
+        #home-menu {
+          height: 60px;
+        }
+        #home-menu-logo, #home-menu-nav, #home-menu-opt {
+          display: none;
+        }
+        #stripe-content {
+          margin: 2rem 0 0 2rem;
+        }
+
+        #stripe-content-inner h1 {
+          font-size: 2rem;
+          letter-spacing: -.23rem;
+        }
+        #stripe-content-inner p {
+          font-size: .7rem;
+        }
+        #slide-content-right {
+          clip-path: polygon(36% 0%, 100% 0, 100% 100%, -70rem 270%);
+        }  
+      }
+      @media only screen and (min-width: 1280px) and (max-width: 1744px){
+        /*-------------------------------
+        |      Resolution Checker       |
+        --------------------------------*/
+        #resolution {background: #685100;}
+
+        #home-menu {
+          height: 75px;
+        }
+        #submenu {
+          top: 75px;
+        } 
+        #home-menu-logo ul li img {
+          width: 80%;
+          height: 80%;
+        }
+        #home-menu-nav ul li {
+          font-size: .9rem;
+        }
+
+        #slide-content-right {
+          clip-path: polygon(36% 0%, 100% 0, 100% 100%, -90rem 270%);
+        }  
+        #submenu-content-row ul li {
+          font-size: .9rem;
+        }
+      }
+      @media only screen and (min-width: 1745px) and (max-width: 1920px){
+        #resolution {
+          background: #b28b00;
+        }
+        #home-menu {
+          height: 90px;
+        }
+        #submenu {
+          top: 90px;
+        } 
+        #slide-content-right {
+          clip-path: polygon(36% 0%, 100% 0, 100% 100%, -100rem 270%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- PreLoader -->
+    <div id="preloader">
+      <div id="status">
+        <img src="img/home/logo.png">
+      </div>
+    </div>
+    <!-- PreLoader End -->
+
+    <!-- Resolution Checker -->
+    <div id="resolution"></div>
+    <!-- Resolution Checker End -->
+
+
+
+
+
+
+    <!-- Pop-up Menus 
+    <div id="settings">
+      <div id="settings-close">
+        <p>×</p>
+      </div>
+      <div id="settings-content">
+          <div id="settings-title" class="text-center">
+              <h2>SETTINGS</h2>
+            </div>
+        <div id="settings-content-left">
+          <ul>
+            <li>TEXT SIZE</li>
+            <li>CONTRAST</li>
+            <li>START - STOP</li>
+          </ul>
+        </div>
+        <div id="settings-content-right">
+          <ul>
+            <li>A</li>
+            <li>CONTRAST</li>
+            <li>START - STOP</li>
+          </ul>
+        </div>
+      </div>
+    </div>-->
+    <!-- Pop-up Menus End -->
+
+    <!-- Home -->
+    <section id="home">
+      <div id="home-video">
+        <a href="aventador.html"><video src="video/video.mp4" type="video/mp4" autoplay muted loop></video></a>
+      </div>
+      <div id="home-menu">
+        <div id="home-menu-logo">
+          <ul>
+            <li><img src="img/home/logo.png"></li>
+          </ul>
+        </div>
+        <div id="home-menu-nav">
+          <ul>
+            <li>MODELS</li>
+            <li>BRAND</li>
+            <li>OWNDERSHIP</li>
+            <li>EXPERIENCE</li>
+            <li>MOTORSPORT</li>
+            <li>STORE</li>
+          </ul>
+        </div>
+        <div id="home-menu-filter"></div>
+        <div id="home-menu-opt">
+          <ul>
+            <li><ion-icon name="md-cog"></ion-icon></li>
+            <li><ion-icon name="share"></ion-icon></li>
+            <li><i class="fas fa-search"></i></li>
+            <li><span class="home-btn-lang">EN</span></li>
+          </ul>
+        </div>
+      </div>
+      <div id="home-menu-arrow" class="text-center">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" width="72" height="62" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><g fill="none" stroke="#ddb321" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M30 12L16 24 2 12"/></g></svg>
+        </span>
+      </div>
+      <div id="home-btn" class="text-center">
+        <span><p>DISCOVER MORE <img src="img/home/arrow.svg" width="14px" height="16px"></p></span>
+      </div>
+    </section>
+    
+    <!-- Home End -->
+
+    <!-- Sub Menu -->
+    <section id="submenu">
+       <div id="submenu-content">
+         <div id="submenu-content-row-left">
+          <ul>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+            <li>&nbsp;</li>
+          </ul>
+         </div>
+         <div id="submenu-content-row-middle">
+            <ul>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+            </ul>
+          </div>
+       </div>
+    </section>
+    <!-- Sub Menu End -->
+
+
+    <!-- Stripe -->
+    <section id="stripe">
+      <div id="stripe-content">
+        <div id="stripe-content-inner">
+            <h1>URUS</h1>
+            <p><span>DISCOVER MORE</span></p>
+        </div>
+      </div>
+      <img src="img/home/image-001.jpg">
+    </section>
+    <!-- Stripe End -->
+
+    <!-- Diagonal Slide -->
+    <section id="slide">
+        <div id="slide-content-left">
+          <div id="slide-content-left-inner">
+            <h1>CONFIGURATOR</h1>
+            <p><span>CUSTOMIZE YOUR LAMBORGHINI</span></p>
+          </div>
+          <img src="img/home/image-002.jpg">
+        </div>
+        <div id="slide-content-right">
+          <div id="slide-content-right-inner">
+            <h1>FIND DEALER</h1>
+            <p><span>FIND</span></p>
+          </div>
+          <img src="img/home/image-003.jpg">
+        </div>
+    </section>
+    <!-- Diagonal Slide End -->
+
+    <!-- News -->
+    <section id="news">
+        <div id="news-title" class="text-align">
+          <h1>NEWS</h1>
+        </div>
+      <div id="news-content">
+  
+      </div>
+    </section>
+    <!-- News End -->
+
+    <!-- Events -->
+    <section id="events">
+        <div id="events-title">
+          EVENTS
+        </div>
+      <div id="events-content">
+        <div id="events-content-top">
+        </div>
+
+        <div id="events-content-bottom">
+        </div>
+
+        <div id="events-content-btn">
+            <span></span>
+        </div>
+      </div>
+    </section>
+    <!-- Events End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="emission" class="text-center">
+      <p>Fuel consumption and emission values of all vehicles promoted on this page - Fuel consumption combined: 18,4-12,3 l/100 km; CO2-emissions combined: 499-279 g/km</p>
+    </div>
+
+    <div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <!-- jQuery End -->
+
+    <!-- Ionicon -->
+    <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
+    <!-- Ionicon End -->
+
+    <!-- Custom Script -->
+    <script src="js/script.js"></script>
+    <!-- Custom Script End -->
+  </body>
+</html>
